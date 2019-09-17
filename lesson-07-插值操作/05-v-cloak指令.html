@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+<body>
+
+<div id="app" v-cloak>
+  <h2>{{message}}</h2>
+  <h2 >{{message}}</h2>
+</div>
+
+<div id="app1" >
+  <h2>{{message1}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  setTimeout(function () {
+    const app = new Vue({
+      el:"#app",
+      data:{
+        message:'延迟执行'
+      }
+    })
+  },1000);
+
+  const app1 = new Vue({
+    el:"#app1",
+    data:{
+      message1:'hello vue'
+    }
+  })
+
+</script>
+</body>
+</html>

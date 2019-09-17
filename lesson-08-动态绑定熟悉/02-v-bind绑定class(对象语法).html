@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .red{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2 class="red">{{message}}</h2>
+  <h2 :class="active">{{message}}</h2>
+
+  <hr>
+  <h2 :class="{red:isRed,line:isLine}" class="bbb">{{message}} , 样式对象，true和false确定样式是否有效</h2>
+  <button @click="btnClick">按钮</button>
+
+  <h2 :class="getClass()">通过方法调用，避免样式太长</h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      message:'hello vue',
+      active:'red',
+      isRed:true,
+      isLine:false
+    },
+    methods:{
+      btnClick:function () {
+        this.isRed = !this.isRed;
+      },
+      getClass:function () {
+        return {red:this.isRed,line:this.isLine};
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <today-weather></today-weather>
+</div>
+
+<div id="app2">
+    <div>今天的天气是：<weather/>!!</div>
+</div>
+
+<!--组件双向绑定-->
+
+<div id="app3">
+
+    <div><input v-model="myname"/></div>
+    <hr/>
+    <say-hello :pname="myname"/>
+
+</div>
+</body>
+<script>
+
+    Vue.component('today-weather',{
+        template:'<div> 今天下雨啦，我们在家听歌吧</div>'
+    });
+
+    //内部数据
+    Vue.component('weather',{
+        template:'<strong>{{weatherData}}</strong>',
+        data: function () {
+            return {
+                weatherData:"多云转晴"
+            }
+        }
+    });
+
+    Vue.component('say-hello',{
+       props: ['pname'],
+        template:'<div>你好，{{pname}}!</div>'
+    });
+    var app = new Vue({
+        el:"#app"
+    });
+
+    var app2 = new Vue({
+        el:"#app2"
+    });
+
+    var app3 = new Vue({
+       el:"#app3",
+        data:{
+           myname: 'echo'
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件：父-子组件事件参数传递</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app1">
+    <h1>加法</h1>
+    <add-method :a="6" :b="12" v-on:add_event="getAddResult"></add-method>
+    <hr>
+    <h2>{{result}}</h2>
+</div>
+</body>
+<script>
+
+    Vue.component('add-method',{
+        props:['a','b'],
+        template: '<div><button v-on:click="add">加一下</button></div>',
+        methods:{
+            add:function () {
+                var value = 0;
+                value = this.a+this.b;
+                this.$emit('add_event',
+                    {
+                        result:value
+                    }
+                )
+            }
+        }
+    });
+
+    var App = new Vue({
+        el:"#app1",
+        data:{
+            result: 0
+        },
+        methods: {
+            getAddResult:function (pval) {
+                this.result = pval.result;
+            }
+        }
+    });
+
+</script>
+</html>

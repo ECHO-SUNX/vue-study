@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件：参数验证</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app1">
+    <h1>身世之谜</h1>
+    <member-info name="呵呵" :age="-1" :detail="{address:'长沙',language:'普通话'}"></member-info>
+</div>
+</body>
+<script>
+
+    Vue.component('member-info',{
+        props:{
+            name:{
+                type:String,
+                required:true
+            },
+            age:{
+                type: Number,
+                validator:function (value) {
+                    return value>=0 && value<=130;
+                }
+            },
+            detail:{
+                type:Object,
+                default: function () {
+                    return {
+                        address:'中国',
+                        language:'方言'
+                    };
+                }
+            },
+        },
+        template: '<div>姓名：{{this.name}}<br>' +
+            '年龄:{{this.age}}<br>' +
+            '地址:{{this.detail.address}}<br>' +
+            '语言:{{this.detail.language}}</div>',
+    });
+
+    var app1 = new Vue({
+        el:'#app1'
+    })
+</script>
+</html>
