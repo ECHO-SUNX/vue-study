@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <button @click="m1()">按钮1</button>
+  <br>
+  <button @click="m1">按钮1(无参数省略小括号)</button>
+  <br>
+  <button @click="m2">按钮2(有参不写括号,输出事件Event)</button>
+  <br>
+  <button @click="m2()">按钮2(有参写括号,输出undefined)</button>
+  <br>
+  <button @click="m2(111)">按钮2(基础类型直接输出，字符串要加单引号'')</button>
+  <br>
+  <button @click="m2('abc')">按钮2(字符串要加单引号'')</button>
+  <br>
+  <button @click="m2(message)">按钮2(输出data变量的值)</button>
+  <br>
+  <button @click="m3(111,message,$event)">按钮3</button>
+
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      message:'hello vue'
+    },
+    methods:{
+      m1(){
+        console.log(111111);
+      },
+      m2(event){
+        console.log(event);
+      },
+      m3(a,b,event){
+        console.log(a+' '+b + ' '+ event);
+      }
+    }
+  })
+</script>
+</body>
+</html>

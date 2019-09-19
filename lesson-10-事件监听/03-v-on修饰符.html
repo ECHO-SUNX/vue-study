@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divClick">
+    阻止事件冒泡
+    <button @click.stop="btnClick">按钮</button>
+  </div>
+
+  
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      message:'hello vue'
+    },
+    methods:{
+      btnClick:function () {
+        console.log('btn---------');
+      },
+      divClick:function () {
+        console.log('div---------');
+      }
+    }
+  })
+</script>
+</body>
+</html>
