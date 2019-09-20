@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item,index) of books"
+        :class="{active:currentIndes===index}" @click="action(index)" >
+      {{item}}
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      books:['海王','海贼王','海尔兄弟','葫芦娃'],
+      currentIndes:0
+    },methods: {
+      action:function (index) {
+        this.currentIndes = index;
+      }
+    }
+  })
+</script>
+</body>
+</html>

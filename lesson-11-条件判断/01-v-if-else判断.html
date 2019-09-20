@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2 v-if="score>=90">优秀</h2>
+  <h2 v-else-if="score>=80">良好</h2>
+  <h2 v-else-if="score>=60">良好</h2>
+  <h2 v-else="score<60">不及格</h2>
+  <br>
+  <h1>建议比较多是判断，直接用computed计算属性去做</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      score:87
+    }
+  })
+</script>
+</body>
+</html>

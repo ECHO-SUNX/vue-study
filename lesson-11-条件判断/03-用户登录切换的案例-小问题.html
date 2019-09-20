@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <span v-if="changeFlag">
+    <label for="userAccount">用户账号：</label>
+    <input type="text" id="userAccount" placeholder="用户账号" key="userAccount">
+  </span>
+  <span v-else>
+    <label for="userEmail">用户邮箱：</label>
+    <input type="text" id="userEmail" placeholder="用户邮箱" key="userEmail">
+  </span>
+  <br>
+  <br>
+  <button @click="change">切换登录</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      changeFlag: true
+    },
+    methods:{
+      change:function () {
+        this.changeFlag = !this.changeFlag;
+      }
+    }
+  })
+</script>
+</body>
+</html>

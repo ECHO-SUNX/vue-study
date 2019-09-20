@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--数组遍历-->
+  <ul>
+    <li v-for="(item,index) of books" :key="item">{{index+1}}.{{item}}</li>
+  </ul>
+  <hr>
+  <!--对象遍历-->
+  <ul>
+    <li v-for="(item,key,index) of person">{{index}}.{{key}}-{{item}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      books:['A','B','C','D'],
+      person:{
+        id:1,
+        name:"小李子",
+        age:20,
+        address: '中国 南方',
+        action:function () {
+          console.log(this.name+"eating thing");
+         return this.name+"eating thing";
+        }
+      }
+    },methods:{
+
+  /*  数组响应式方法
+      push()
+      pop()
+      shift()
+      unshift()
+      splice()
+      sort()
+      reverse()
+      */
+
+    }
+  });
+  app.person.action();
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--带有 v-show 的元素始终会被渲染并保留在 DOM 中。v-show 只是简单地切换元素的 CSS 属性 display-->
+  <h2 v-show="isTrue">要不要显示show</h2>
+  <br>
+  <h2 v-if="isTrue">要不要显示if</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      isTrue: true
+    }
+  })
+</script>
+</body>
+</html>
