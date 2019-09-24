@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model.lazy="message">
+  {{message}}
+  <hr>
+  <h2>类型会在输入后发生变化</h2>
+  <input type="number" v-model="age">
+  <h2>保证是number类型</h2>
+  <input type="number" v-model.number="age">
+  {{age}},{{typeof age}}
+
+  <hr>
+  <input type="text" v-model.trim="name">
+  名字是：{{name}}!
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      message:'hello vue',
+      age:1,
+      name:'balabala'
+    }
+  })
+</script>
+</body>
+</html>

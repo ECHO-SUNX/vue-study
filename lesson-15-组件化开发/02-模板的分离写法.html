@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn-1></cpn-1>
+  <cpn-2></cpn-2>
+</div>
+
+
+<!--写法1-->
+<script type="text/x-template" id="cpn1">
+  <div>
+    <h2>我就是我~~~~</h2>
+    <p>什么情况这也行吗？</p>
+  </div>
+</script>
+
+<!--写法2 template标签(推荐)-->
+<template id="cpn-2">
+  <div>
+    <h2>你就是你~~~~</h2>
+    <p>什么情况这也行吗？</p>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+  /*全局组件*/
+  Vue.component('cpn-1',{
+    template:'#cpn1'
+  })
+
+  /*局部组件*/
+  const app = new Vue({
+    el:"#app",
+    data:{
+      message:'hello vue'
+    },
+    components:{
+      'cpn-2':{
+        template: '#cpn-2'
+      }
+    }
+  })
+</script>
+</body>
+</html>
