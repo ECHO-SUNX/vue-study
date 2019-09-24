@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn-1></cpn-1>
+  <cpn-1></cpn-1>
+  <cpn-1></cpn-1>
+</div>
+
+
+<template id="cpn">
+  <div>
+    <h2>计算数值：{{count}}</h2>
+    <button @click="decrement">-</button>
+    <button @click="increment">+</button>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  //count指向一个内存地址
+  const count = {
+    count:0
+  }
+
+  Vue.component('cpn-1',{
+    template:'#cpn',
+    data:function () {
+      //这样写会每次调用返回一个新的变量
+      return {
+        count:0
+      }
+/*    return count;
+这样会导致组件实例公用同一个data变量，造成组件互相影响
+* */
+    },
+    methods:{
+      decrement:function () {
+        this.count --
+      },
+      increment:function () {
+        this.count ++
+      }
+    }
+  });
+
+  const app = new Vue({
+    el:"#app",
+    data:{
+      message:'hello vue'
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn :name="name" :message="message"></cpn>
+</div>
+
+
+<template id="cpn">
+  <div>
+  <h2>HELLO ,{{name}}</h2>
+  <p>{{message}}</p>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+  Vue.component('cpn',{
+    template:'#cpn',
+    props:{
+      name:String,
+      message:String
+    }
+  })
+
+  const app = new Vue({
+    el:"#app",
+    data:{
+      name:'VUE',
+      message:'this is a message for you~'
+    }
+  })
+</script>
+</body>
+</html>
