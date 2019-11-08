@@ -12,7 +12,7 @@ const Home = ()=>import('../components/Home')
 const About = ()=>import('../components/About')
 const User = ()=>import('../components/User')
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path:'/',
@@ -20,16 +20,39 @@ export default new Router({
     },
     {
       path:'/home',
-      component: Home
+      component: Home,
+      meta:{
+        title:"home"
+      }
     },
     {
       path:'/about',
-      component: About
+      component: About,
+      meta:{
+        title:"about"
+      }
     },
     {
       path:'/user/:name',
-      component:User
+      component:User,
+      meta:{
+        title:"user"
+      }
+    },
+    {
+      path: '/profile',
+      component: () => import('../components/Profile'),
+      meta:{
+        title:"profile"
+      }
     }
   ],
   mode:'history'
 })
+
+router.beforeEach((to,from,next)=>{
+  document.title = to.matched[0].meta.title;
+ next();
+})
+
+export default router

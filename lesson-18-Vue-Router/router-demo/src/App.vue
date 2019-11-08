@@ -3,6 +3,7 @@
     <router-link to="/home" tag="button">home</router-link>
     <router-link to="/about">about</router-link>
     <router-link :to="'/user/'+username">用户bbb</router-link>
+    <router-link :to="{path:'/profile',query:{name:'heheda',age:18,sex:'man'}}">档案</router-link>
 
     <hr>
     <button @click="homeClick">首页</button>
