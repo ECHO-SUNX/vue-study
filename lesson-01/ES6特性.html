@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    /*数组遍历  1. forEach*/
+    var languages = ["JavaScript", "Python", "Rust", "Go"];
+    languages.forEach(function (e) {
+        console.log(e);
+    })
+
+    /*数据转换  2. map*/
+    var numbers = [1, 2, 4, 8, 16];
+    var numbers2 = numbers.map(value => value*2);
+    console.log(numbers2);
+
+    /*数组过滤  3. filter*/
+    var apples = [
+        { id: 1, weight: 18 },
+        { id: 2, weight: 9 },
+        { id: 3, weight: 11 },
+    ];
+    var filtered = apples.filter(function (e) {
+        return e.weight >= 10;
+    });
+
+    console.log(filtered);
+
+    /*数组查找  4. find*/
+
+    var users = [
+        { id: 1, name: "kevin" },
+        { id: 2, name: "cicic" },
+        { id: 3, name: "alexy" },
+        { id: 4, name: "bingo" },
+        { id: 5, name: "henry" },
+    ];
+    var found = users.find(function (e) {
+        return e.name === "bingo";
+    });
+
+    console.log(found);
+
+    /*对象解构*/
+    let user = {
+        name: "Amy",
+        age: 20,
+        college: "szu"
+    }
+    //传统实现
+/*    function print(user) {
+        console.log(`${user.name}的年龄是${user.age}`);
+    }
+    print(user);  // Amy的年龄是20*/
+
+    function print({name, age, college}) {
+        console.log(`${name}的年龄是${age}`);
+    }
+    print(user);  // Amy的年龄是20
+
+    /*数组转对象*/
+    const points = [
+        [4, 5],
+        [1, 2],
+        [3, 6],
+    ];
+
+    let res = points.map(([x, y]) => {
+        return { x, y };
+    })
+    console.log(res);//
+
+</script>
+</html>
